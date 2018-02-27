@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1, minimum-scale=1,user-scalable=no">
+    <meta name="MobileOptimized" content="320">
+    <title>组件2 this.props.children</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+        class Hello extends React.Component { // 通过类定义一个组件
+            render() {
+                return <ul>
+                    {
+                        React.Children.map(this.props.children, function (child) {
+                            return <li>{ child }</li>
+                        })
+                    }    
+                </ul>
+            }
+        }
+        ReactDOM.render(
+            <Hello>
+                <p>子组件1</p>
+                <p>子组件2</p>    
+            </Hello>,
+			document.getElementById('example')            
+        )
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1, minimum-scale=1,user-scalable=no">
+    <meta name="MobileOptimized" content="320">
+    <title>组件2 this.state</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+        class Hello extends React.Component { // 通过类定义一个组件 state的初始状态需要在构造函数中定义
+            constructor(props) {
+                super(props),
+                this.state = {liked: false},
+                this.handleClick = this.handleClick.bind(this)
+            }
+            handleClick () {
+                this.setState({
+                    liked: !this.state.liked
+                })
+            }
+            render () {
+                const text = this.state.liked ? 'like' : 'don\'t like';
+                return <div onClick={this.handleClick}>you { text } this, click to toggle</div>
+            }
+        }
+        ReactDOM.render(
+            <Hello />,
+			document.getElementById('example')            
+        )
+    </script>
+  </body>
+</html>

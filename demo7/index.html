@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1, minimum-scale=1,user-scalable=no">
+    <meta name="MobileOptimized" content="320">
+    <title>表单</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+        class Form extends React.Component { // 读取表单元素的值不能通过this.props获取，需要用this.state
+            constructor(props) {
+                super(props),
+                this.state = { value: 'hello' },
+                this.handleChange = this.handleChange.bind(this)
+            }
+            handleChange (e) {
+                this.setState({
+                    value: e.target.value
+                })
+            }
+            render () {
+                const text = this.state.value;
+                return <input onChange={this.handleChange} value={this.state.value} />
+            }
+        }
+        ReactDOM.render(
+            <Form />,
+			document.getElementById('example')            
+        )
+    </script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1, minimum-scale=1,user-scalable=no">
+    <meta name="MobileOptimized" content="320">
+    <title>jsx语法2</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+		let arrs = [
+            <h1>这是第一个标题</h1>,
+            <h2>这是第二个标题</h2>            
+        ];
+		ReactDOM.render(
+			<div>{arrs}</div>,
+			document.getElementById('example')
+		);
+    </script>
+  </body>
+</html>
